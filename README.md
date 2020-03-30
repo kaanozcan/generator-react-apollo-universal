@@ -18,7 +18,7 @@
 Bundled using webpack@4 and babel@7 core-js@3. Content hashing enabled for bundle files. You will never have to invalidate cache and never will invalidate for the javascript you haven't changed.
 
 #### CSS
-PostCSS initiated with a minimal set of plugins and can be extended easily at ```postcss.config.js```. [css-modules](#https://github.com/css-modules/css-modules) is set up so no need to fear specificity. CSS is bundled using webpack into javascript files and put into style tags both on client and server to prevent flickering and to enable instant display of styled markup on the initial render of document.
+PostCSS initiated with a minimal set of plugins and can be extended easily at ```postcss.config.js```. [css-modules](https://github.com/css-modules/css-modules) is set up so no need to fear specificity. CSS is bundled using webpack into javascript files and put into style tags both on client and server to prevent flickering and to enable instant display of styled markup on the initial render of document.
 
 #### Configuration
 Easy configuration just put your config files in config folder and get them using ```config.get(my.config.value)```. Choose what config values you send to client and what sensitive information you decide not to inform client about using apollo client state.
@@ -29,9 +29,9 @@ Apollo server and client all set and ready to go.
 ## How To
 
 #### Configuration
-On server side configuration done through [node-config](#https://github.com/lorenwest/node-config). Put your configuration files in config folder as shown in their documentation. Use NODE_CONFIG_ENV (instead of NODE_ENV) for setting which config you want to be loaded.
+On server side configuration done through [node-config](https://github.com/lorenwest/node-config). Put your configuration files in config folder as shown in their documentation. Use NODE_CONFIG_ENV (instead of NODE_ENV) for setting which config you want to be loaded.
 
-If you need access config on client use ```@client``` directive on graphql queries to access server defined set of values. You can get the values from node-config or you pass any run time value. See ```src/middlewares/index.js:46``` for how to populate these values and ```src/components/Site/index.js:10``` for how to consume these values. [For further information refer to this resource](#https://www.apollographql.com/docs/react/data/local-state/)
+If you need access config on client use ```@client``` directive on graphql queries to access server defined set of values. You can get the values from node-config or you pass any run time value. See ```src/middlewares/index.js:46``` for how to populate these values and ```src/components/Site/index.js:10``` for how to consume these values. [For further information refer to this resource](https://www.apollographql.com/docs/react/data/local-state/)
 
 #### GraphQL
 There is an example for GraphQL modules and DataSources in src/graphql folder. You need to create your DataSources in dataSources folder and do a named export in dataSources/index.js file. For GraphQL types and resolvers they need to be structured as shown in ```src/graphql/todos``` and ```src/graphql/index.js```. There will be commands provided for the generation of these files later so this process will be automated.
