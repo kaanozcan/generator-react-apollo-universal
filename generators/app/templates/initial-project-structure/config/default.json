@@ -1,0 +1,16 @@
+{
+  "server": {
+    "port": 3001,
+    "host": "http://localhost:3001",
+    "statics": {
+      "path": "/public"
+    }
+  },
+  "session": {
+    "secret": "cats"
+  },
+  "graphql": {
+    "isPlaygroundEnabled": true,
+    "isTracingEnabled": true
+  }
+}

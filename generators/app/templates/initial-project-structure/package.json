@@ -1,0 +1,16 @@
+{
+  "name": "<%= appName %>",
+  "scripts": {
+    "flow": "flow",
+    "gulp": "gulp",
+    "build": "gulp build",
+    "develop": "gulp develop",
+    "start": "node ./dist/server.js",
+    "analyze-bundle": "ANALYZE_BUNDLE=true NODE_ENV=production npm run build",
+    "test": "echo \"all pass coverage 100%\""
+  },
+  "nodemonConfig": {
+    "ignore": ["src/**/*", "lib/**/*", "**/public/**/*"],
+    "delay": "1000"
+  }
+}

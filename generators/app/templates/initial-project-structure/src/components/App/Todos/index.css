@@ -1,0 +1,14 @@
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.todoItem {
+  padding: 16px;
+  border: 1px solid black;
+  margin-top: 2px;
+}
+
+.completedCheck {
+  float: right;
+}
