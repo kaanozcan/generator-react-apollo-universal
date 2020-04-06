@@ -77,6 +77,8 @@ const startDevServer = (done) => {
     .on('restart', function (files) {
       console.log('App restarted due to: ', files);
     });
+
+    done();
 }
 
 const develop = gulp.series(watchAndBuildBundles, startDevServer);
