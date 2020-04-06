@@ -1,10 +1,11 @@
 import React from "react";
 import { useQuery } from "@apollo/react-hooks";
 import gql from "graphql-tag";
+import Todo from "./Todo";
 import useStyles from "isomorphic-style-loader/useStyles";
 import styles from "./index.css";
 
-const TODOS = gql`
+export const TODOS = gql`
   {
     todos {
       title
@@ -21,15 +22,7 @@ export default () => {
     return (<div>Loading...</div>);
   }
 
-  const todos = (data && data.todos || []).map(({ title, completed }, i) => {
-    const isCompleted = completed ? (
-      <div className={styles.completedCheck}>	&#10004;</div>
-    ) : null;
-
-    return (
-      <div key={i} className={styles.todoItem}>{title}{isCompleted}</div>
-    );
-  });
+  const todos = (data && data.todos || []).map((todo, i) => (<Todo key={i} {...todo} />));
 
   return (
     <div className={styles.container}>
