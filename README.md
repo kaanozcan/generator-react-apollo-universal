@@ -24,7 +24,10 @@ PostCSS initiated with a minimal set of plugins and can be extended easily at ``
 Easy configuration just put your config files in config folder and get them using ```config.get(my.config.value)```. Choose what config values you send to client and what sensitive information you decide not to inform client about using apollo client state.
 
 #### Apollo GraphQL
-Apollo server and client all set and ready to go.
+Apollo server and client with websocket support all set and ready to go.
+
+#### Unit Tests
+Jest with React Testing Library set up. Examples can be found under ```src/components/App/Todos```
 
 ## How To
 
@@ -34,7 +37,18 @@ On server side configuration done through [node-config](https://github.com/loren
 If you need access config on client use ```@client``` directive on graphql queries to access server defined set of values. You can get the values from node-config or you pass any run time value. See ```src/middlewares/index.js:46``` for how to populate these values and ```src/components/Site/index.js:10``` for how to consume these values. [For further information refer to this resource](https://www.apollographql.com/docs/react/data/local-state/)
 
 #### GraphQL
-There is an example for GraphQL modules and DataSources in src/graphql folder. You need to create your DataSources in dataSources folder and do a named export in dataSources/index.js file. For GraphQL types and resolvers they need to be structured as shown in ```src/graphql/todos``` and ```src/graphql/index.js```. There will be commands provided for the generation of these files later so this process will be automated.
+There is an example for GraphQL modules and DataSources in src/graphql folder. You need to create your DataSources in dataSources folder and do a named export in dataSources/index.js file. For GraphQL types and resolvers they need to be structured as shown in ```src/graphql/todos``` and ```src/graphql/index.js```. There will be commands provided for the generation of these files later so this process will be automated.  
+
+To enable subscriptions pass isWSEnabled option true to the createApolloClient function as shown below in ```src/scripts/client.js``` and ```src/middlewares/siteRenderer/index.js```  
+
+```
+const apolloClient = createApolloClient({
+  isWSEnabled: true
+});
+```
+
+#### Unit Tests
+Create your spec files anywhere in ```src/``` or ```lib/``` and run ```npm run test```. To create coverage report run ```npm run test:coverage```. To see an example unit testing a component with graphql query go to ```src/components/App/Todos/index.spec.js```
 
 #### CSS
 To use write and use CSS simply create your CSS files in any folder you desire and import and use them. Example:
@@ -89,10 +103,13 @@ module.exports = {
 ```npm run develop```: Watches file changes, generates bundles and starts development server.  
 ```npm run build```: Generates bundle files. (Do not forget about setting NODE_ENV as it decides if the bundle is for production or not)  
 ```npm run start```: Starts server. (Do not forget about setting NODE_ENV and NODE_CONFIG_ENV)  
+```npm run test```: Runs unit tests.   
+```npm run test:verbose```: Runs unit tests in verbose mode.   
+```npm run test:coverage```: Creates coverage reports.   
 ```npm run analyze-bundle```: Analyzes bundle and creates report.  
 
 ## Road Map
  - [x] Bundle hashing
  - [ ] Code splitting
  - [ ] Commands for creating GraphQL modules and DataSources
- - [ ] Unit tests
+ - [x] Unit test setup
