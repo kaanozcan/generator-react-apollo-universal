@@ -7,7 +7,9 @@
     "develop": "gulp develop",
     "start": "node ./dist/server.js",
     "analyze-bundle": "ANALYZE_BUNDLE=true NODE_ENV=production npm run build",
-    "test": "echo \"all pass coverage 100%\""
+    "test": "jest",
+    "test:verbose": "jest --verbose",
+    "test:coverage": "jest --coverage"
   },
   "nodemonConfig": {
     "ignore": ["src/**/*", "lib/**/*", "**/public/**/*"],
