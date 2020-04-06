@@ -23,16 +23,16 @@ const copyPublic = (done) => gulp
   .src("./public/**/*")
   .pipe(gulp.dest("./dist/public"));
 
-const createWebpackRunner = ({ watchModeEnabled }) => (done) => {
+const createWebpackRunner = ({ watchModeEnabled }) => function webpackRunner (done) {
   const callback = webpackRunCallback({ callback: done });
   const compiler = webpack([webpackClientConfig, webpackBackendConfig]);
 
   if (watchModeEnabled) {
     compiler.watch({
       aggregateTimeout: 300
-    }, () => {
+    }, (err, stats) => {
       copyPublic();
-      callback();
+      callback(err, stats);
     });
   } else {
     compiler.run(callback);
