@@ -1,15 +1,8 @@
-{
+module.exports = {
   "env": {
     "node": {
       "plugins": [
         "dynamic-import-node",
-        ["module-resolver", {
-          "root": ["./"],
-          "alias": {
-            "lib": "./lib",
-            "src": "./src"
-          }
-        }]
       ]
     },
     "browser": {
@@ -34,6 +27,7 @@
     "@babel/preset-react"
   ],
   "plugins": [
+    "@babel/plugin-transform-async-to-generator",
     "@babel/plugin-transform-regenerator",
     "@babel/plugin-proposal-function-bind",
     "@babel/plugin-proposal-export-default-from",
