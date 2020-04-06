@@ -1,4 +1,5 @@
 import "core-js/stable";
+import regeneratorRuntime from "regenerator-runtime/runtime";
 import React from "react";
 import ReactDom from "react-dom";
 import Site from "@src/components/Site";
