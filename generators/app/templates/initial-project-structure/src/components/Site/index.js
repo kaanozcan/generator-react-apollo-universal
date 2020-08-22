@@ -1,8 +1,7 @@
 import React from "react";
 import App from "../App";
-import gql from "graphql-tag";
+import { gql, useQuery } from "@apollo/client";
 import { Switch, Route } from "react-router";
-import { useQuery } from "@apollo/react-hooks";
 import useStyles from "isomorphic-style-loader/useStyles";
 import styles from "./index.css";
 import { Helmet } from "react-helmet-async";

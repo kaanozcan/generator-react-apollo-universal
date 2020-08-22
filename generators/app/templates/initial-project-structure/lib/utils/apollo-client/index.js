@@ -1,13 +1,12 @@
-import { ApolloClient, addTypename } from "apollo-client";
-import { onError } from "apollo-link-error";
-import { getMainDefinition } from "apollo-utilities";
-import { split } from "apollo-link";
-import { WebSocketLink } from "apollo-link-ws";
-import { InMemoryCache } from "apollo-cache-inmemory";
+import { ApolloClient, gql, addTypename, split } from "@apollo/client";
+import { onError } from "@apollo/client/link/error";
+import { getMainDefinition } from "@apollo/client/utilities";
+import { WebSocketLink } from "@apollo/client/link/ws";
+import { InMemoryCache } from "@apollo/client/cache";
 import fetch from "isomorphic-fetch";
 import { Agent } from "https";
-import { BatchHttpLink } from "apollo-link-batch-http";
-//import { SchemaLink } from 'apollo-link-schema';
+import { BatchHttpLink } from "@apollo/client/link/batch-http";
+//import { SchemaLink } from '@apollo/client/link/schema';
 
 const nodeEnv = {
   isTest: process.env.NODE_ENV === "test",
@@ -80,15 +79,7 @@ const getLink = (baseDomain, graphqlSubscriptionUrl, isWSEnabled, clientStateCac
 };
 
 const getMemoryCache = (initialData) => {
-  const memoryCache = new InMemoryCache({
-    dataIdFromObject: (data) => {
-      if (data.id) {
-        return `${data.__typename}(${data.id})`;
-      } else {
-        return null;
-      }
-    }
-  });
+  const memoryCache = new InMemoryCache();
 
   if (initialData) {
     memoryCache.restore(initialData);
@@ -131,7 +122,17 @@ export default ({
   });
 
   if (clientState) {
-    cache.writeData({
+    cache.writeQuery({
+      query: gql`
+        query {
+          clientState @client {
+            bundleManifest {
+              bundle
+              vendor
+            }
+          }
+        }
+      `,
       data: {
         clientState
       }

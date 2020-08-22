@@ -1,4 +1,11 @@
 # Changelog
+## [1.2.0]((https://github.com/kaanozcan/generator-react-apollo-universal/compare/v1.1.0...v1.2.0))
+### Changed
+- Updated to Apollo Client 3.0
+
+### Removed
+- Removed deprecated dependencies with Apollo Client 3.0
+
 ## [1.1.0]((https://github.com/kaanozcan/generator-react-apollo-universal/compare/v1.0.1...v1.1.0))
 ### Added
 - Unit test setup

@@ -1,7 +1,7 @@
 import React, { Components } from "react";
 import PropTypes from "prop-types";
 import { Route } from "react-router";
-import { ApolloProvider } from "react-apollo";
+import { ApolloProvider } from "@apollo/client";
 import ErrorBoundary from "@lib/components/ErrorBoundary";
 import { HelmetProvider } from "react-helmet-async";
 

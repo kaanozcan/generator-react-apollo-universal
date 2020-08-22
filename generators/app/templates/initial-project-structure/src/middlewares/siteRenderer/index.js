@@ -1,7 +1,7 @@
 import React from "react";
 import { renderToString } from "react-dom/server";
 import createApolloClient from "@lib/utils/apollo-client";
-import { renderToStringWithData } from "react-apollo";
+import { renderToStringWithData } from "@apollo/client/react/ssr";
 import Bootstrap from "@lib/components/Bootstrap";
 import config from "config";
 import StyleContext from "isomorphic-style-loader/StyleContext";

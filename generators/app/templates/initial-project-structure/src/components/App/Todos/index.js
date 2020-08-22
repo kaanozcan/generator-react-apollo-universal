@@ -1,6 +1,5 @@
 import React from "react";
-import { useQuery } from "@apollo/react-hooks";
-import gql from "graphql-tag";
+import { useQuery, gql } from "@apollo/client";
 import Todo from "./Todo";
 import useStyles from "isomorphic-style-loader/useStyles";
 import styles from "./index.css";
