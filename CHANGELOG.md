@@ -1,4 +1,11 @@
 # Changelog
+## [1.3.0](https://github.com/kaanozcan/generator-react-apollo-universal/compare/v1.2.0...v1.3.0)
+### Changed
+- Moved script tags to the bottom of the document removing them from head tag to prevent render blocking.
+
+### Fixed
+- Fixed "Did not expect server HTML to contain the text node" error by removing a carriage return.
+
 ## [1.2.0](https://github.com/kaanozcan/generator-react-apollo-universal/compare/v1.1.0...v1.2.0)
 ### Changed
 - Updated to Apollo Client 3.0
