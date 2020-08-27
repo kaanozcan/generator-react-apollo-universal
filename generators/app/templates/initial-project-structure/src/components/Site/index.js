@@ -4,7 +4,6 @@ import { gql, useQuery } from "@apollo/client";
 import { Switch, Route } from "react-router";
 import useStyles from "isomorphic-style-loader/useStyles";
 import styles from "./index.css";
-import { Helmet } from "react-helmet-async";
 
 const BUNLE_MANIFEST = gql`
   {
@@ -29,13 +28,11 @@ const Site = (props) => {
 
   return (
     <>
-      <Helmet>
-        <script src={`/public/bundle/${bundleManifest.vendor}`} />
-        <script src={`/public/bundle/${bundleManifest.bundle}`} />
-      </Helmet>
       <Switch>
         <Route path="/" component={App} />
       </Switch>
+      <script src={`/public/bundle/${bundleManifest.vendor}`} />
+      <script src={`/public/bundle/${bundleManifest.bundle}`} />
     </>
   );
 };
