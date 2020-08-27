@@ -25,12 +25,9 @@ const getDocument = (markup, helmetContext, css, apolloState) => {
           ${helmetContext.helmet.link.toString()}
 
           <style>${[...css].join('')}</style>
-
       </head>
       <body>
-        <div id="app-root" data-apollo-state="${state}">
-          ${markup}
-        </div>
+        <div id="app-root" data-apollo-state="${state}">${markup}</div>
       </body>
     </html>
   `;
