@@ -19,7 +19,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Kaan Özcan <knzcnn@gmail.com",
+  "author": "Kaan Özcan <knzcnn@gmail.com> (http://knozcan.com)",
   "license": "ISC",
   "dependencies": {
     "yeoman-generator": "^3.1.1"
