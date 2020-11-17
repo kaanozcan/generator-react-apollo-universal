@@ -1,4 +1,8 @@
 # Changelog
+## [1.4.0](https://github.com/kaanozcan/generator-react-apollo-universal/compare/v1.3.0...v1.4.0)
+### Added
+- Added option to starting server using PM2.
+
 ## [1.3.0](https://github.com/kaanozcan/generator-react-apollo-universal/compare/v1.2.0...v1.3.0)
 ### Changed
 - Moved script tags to the bottom of the document removing them from head tag to prevent render blocking.
