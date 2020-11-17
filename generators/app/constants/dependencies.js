@@ -19,7 +19,8 @@ const dependencies = {
   "react-router-dom": "5.1.2",
   "reflect-metadata": "0.1.13",
   "regenerator-runtime": "0.13.5",
-  "serve-favicon": "2.5.0"
+  "serve-favicon": "2.5.0",
+  "pm2": "4.5.0",
 };
 
 const devDependencies = {
