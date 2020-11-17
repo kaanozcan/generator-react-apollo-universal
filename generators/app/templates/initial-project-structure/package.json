@@ -3,10 +3,22 @@
   "scripts": {
     "flow": "flow",
     "gulp": "gulp",
+    <% if (isPM2Enabled) { %>
+    "pm2": "pm2",
+    "pm2:flush": "npm run pm2 -- flush",
+    "pm2:monit": "npm run pm2 -- monit",
+    "pm2:kill": "npm run pm2 -- kill",
+    "pm2:restart-all": "npm run pm2 -- restart all",
+    <% } %>
     "build": "gulp build",
-    "develop": "gulp develop",
-    "start": "node ./dist/server.js",
     "analyze-bundle": "ANALYZE_BUNDLE=true NODE_ENV=production npm run build",
+    "develop": "gulp develop",
+    <% if (isPM2Enabled) { %>
+    "start": "npm run pm2 -- start --env production",
+    "start:development": "npm run pm2 -- start --env development",
+    <% } else { %>
+    "start": "node ./dist/server.js",
+    <% } %>
     "test": "jest",
     "test:verbose": "jest --verbose",
     "test:coverage": "jest --coverage"
